@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApp.UI", "TodoApp.UI\TodoApp.UI.csproj", "{819D5BA2-4942-46AB-B3B7-38450DF959F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp.Backend", "TodoApp.Backend\TodoApp.Backend.csproj", "{96BA18A1-0140-4087-ADEA-C81C39F6B035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApp.Backend", "TodoApp.Backend\TodoApp.Backend.csproj", "{96BA18A1-0140-4087-ADEA-C81C39F6B035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp.Application", "TodoApp.Application\TodoApp.Application.csproj", "{2A507A5A-71DF-4F48-B09A-1B59F7748D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp.Protos", "TodoApp.Protos\TodoApp.Protos.csproj", "{EB28D9FF-D1DE-47DC-A668-F112570E0B97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{96BA18A1-0140-4087-ADEA-C81C39F6B035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BA18A1-0140-4087-ADEA-C81C39F6B035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BA18A1-0140-4087-ADEA-C81C39F6B035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A507A5A-71DF-4F48-B09A-1B59F7748D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A507A5A-71DF-4F48-B09A-1B59F7748D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A507A5A-71DF-4F48-B09A-1B59F7748D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A507A5A-71DF-4F48-B09A-1B59F7748D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB28D9FF-D1DE-47DC-A668-F112570E0B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB28D9FF-D1DE-47DC-A668-F112570E0B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB28D9FF-D1DE-47DC-A668-F112570E0B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB28D9FF-D1DE-47DC-A668-F112570E0B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

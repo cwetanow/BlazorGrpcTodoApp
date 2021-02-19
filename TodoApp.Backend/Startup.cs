@@ -46,7 +46,7 @@ namespace TodoApp.Backend
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<GreetService>().EnableGrpcWeb();
+                endpoints.MapGrpcService<TodoService>().EnableGrpcWeb();
                 endpoints.MapFallbackToFile("index.html");
             });
         }

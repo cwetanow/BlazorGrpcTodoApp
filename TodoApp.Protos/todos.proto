@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "TodoApp";
+
+package todos;
+
+// The greeting service definition.
+service TodoActions {
+	// Sends a greeting
+	rpc Create (NewTodoRequest) returns (TodoItem);
+	rpc Get (GetTodoByIdRequest) returns (TodoItem);
+}
+
+// The request message containing the user's name.
+message NewTodoRequest {
+	string title = 1;
+	string description = 2;
+	string endDate = 3;
+}
+
+// The request message containing the user's name.
+message GetTodoByIdRequest {
+	int32 id = 2;
+}
+
+// The response message containing the greetings.
+message TodoItem {
+	string title = 1;
+	string description = 2;
+	string endDate = 3;
+	int32 id = 4;
+}

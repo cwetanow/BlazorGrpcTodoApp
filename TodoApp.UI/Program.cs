@@ -34,7 +34,7 @@ namespace TodoApp.UI
                 return GrpcChannel.ForAddress(backendUrl, new GrpcChannelOptions { HttpHandler = handler });
             });
 
-            services.AddTransient(p => new GreeterService.GreeterServiceClient(p.GetRequiredService<GrpcChannel>()));
+            services.AddTransient(p => new TodoActions.TodoActionsClient(p.GetRequiredService<GrpcChannel>()));
         }
     }
 }
