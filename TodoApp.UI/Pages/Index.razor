@@ -1,8 +1,30 @@
 ﻿@page "/"
 
-@*<input value="@Message"
-       @onchange="@(args=>OnInputValueChange(args.Value.ToString()))" />
+<h1>Uncompleted</h1>
 
-
-
-<p>@Message</p>*@
+@if (Items == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>End Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var todo in Items)
+        {
+            <tr>
+                <td>@todo.Title</td>
+                <td>@todo.Description</td>
+                <td>@todo.EndDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

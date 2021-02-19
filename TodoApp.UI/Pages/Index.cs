@@ -1,29 +1,20 @@
-﻿//using System;
-//using System.Threading.Tasks;
-//using Grpc.Core;
-//using Microsoft.AspNetCore.Components;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 
-//namespace TodoApp.UI.Pages
-//{
-//    public partial class Index : ComponentBase
-//    {
-//        private string Message { get; set; } = "Initial";
+namespace TodoApp.UI.Pages
+{
+    public partial class Index : ComponentBase
+    {
+        [Inject]
+        public TodoActions.TodoActionsClient Client { get; set; }
 
-//        [Inject]
-//        public GreeterService.GreeterServiceClient Client { get; set; }
+        public IEnumerable<TodoItem> Items { get; set; }
 
-//        public async Task OnInputValueChange(string newValue)
-//        {
-//            try
-//            {
-//                var response = await Client.SayHelloAsync(new HelloRequest { Name = newValue });
-//                this.Message = response.Message;
-//            }
-//            catch (RpcException e)
-//            {
-//                Console.WriteLine(e);
-//            }
-
-//        }
-//    }
-//}
+        protected override async Task OnInitializedAsync()
+        {
+            var response = await Client.GetUncompleteAsync(new GetUncompleteTodosRequest());
+            this.Items = response.Items;
+        }
+    }
+}

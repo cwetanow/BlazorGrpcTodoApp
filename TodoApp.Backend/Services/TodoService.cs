@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
 using MediatR;
 using TodoApp.Application.Todos.Commands;
+using TodoApp.Application.Todos.Queries;
 
 namespace TodoApp.Backend.Services
 {
@@ -30,6 +32,25 @@ namespace TodoApp.Backend.Services
             {
                 Id = id
             };
+        }
+
+        public override async Task<TodoItemList> GetUncomplete(GetUncompleteTodosRequest request, ServerCallContext context)
+        {
+            var items = await _mediator.Send(new GetUncompletedTodosQuery());
+            var response = new TodoItemList();
+
+            foreach (var todoItem in items)
+            {
+                response.Items.Add(new TodoItem
+                {
+                    Title = todoItem.Title,
+                    Id = todoItem.Id,
+                    Description = todoItem.Description,
+                    EndDate = todoItem.EndDate?.ToString() ?? string.Empty
+                });
+            }
+
+            return response;
         }
     }
 }
