@@ -1,0 +1,8 @@
+﻿@page "/"
+
+<input value="@Message"
+       @onchange="@(args=>OnInputValueChange(args.Value.ToString()))" />
+
+
+
+<p>@Message</p>
