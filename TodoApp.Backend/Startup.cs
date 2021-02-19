@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TodoApp.Application;
 using TodoApp.Backend.Services;
+using TodoApp.Data;
 
 namespace TodoApp.Backend
 {
@@ -20,6 +22,10 @@ namespace TodoApp.Backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+
+            services
+                .AddApplication()
+                .AddData();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

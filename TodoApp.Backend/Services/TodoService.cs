@@ -1,21 +1,35 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Grpc.Core;
+using MediatR;
+using TodoApp.Application.Todos.Commands;
 
 namespace TodoApp.Backend.Services
 {
     public class TodoService : TodoApp.TodoActions.TodoActionsBase
     {
-        public override Task<TodoItem> Create(NewTodoRequest request, ServerCallContext context)
+        private readonly IMediator _mediator;
+
+        public TodoService(IMediator mediator)
         {
-            var result = new TodoItem
+            _mediator = mediator;
+        }
+
+        public override async Task<TodoItem> Create(NewTodoRequest request, ServerCallContext context)
+        {
+            var command = new CreateTodoCommand
             {
-                Id = 5,
+                Title = request.Title,
                 Description = request.Description,
-                EndDate = request.EndDate,
-                Title = request.Title
+                EndDate = DateTime.TryParse(request.EndDate, out var endDate) ? endDate : (DateTime?)null
             };
 
-            return Task.FromResult(result);
+            var id = await _mediator.Send(command);
+
+            return new TodoItem
+            {
+                Id = id
+            };
         }
     }
 }

@@ -6,7 +6,7 @@ namespace TodoApp.UI.Pages
 {
     public partial class CreateTodo : ComponentBase
     {
-        public NewTodoRequest Request { get; set; } = new NewTodoRequest { EndDate = DateTime.UtcNow.ToString() };
+        public NewTodoRequest Request { get; set; } = new NewTodoRequest { EndDate = DateTime.UtcNow.ToLongDateString() };
 
         [Inject]
         public TodoActions.TodoActionsClient Client { get; set; }
