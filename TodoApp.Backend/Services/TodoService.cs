@@ -52,5 +52,12 @@ namespace TodoApp.Backend.Services
 
             return response;
         }
+
+        public override async Task<Response> Complete(CompleteTodoRequest request, ServerCallContext context)
+        {
+            await _mediator.Send(new CompleteTodoCommand { Id = request.Id });
+
+            return new Response { Success = true };
+        }
     }
 }

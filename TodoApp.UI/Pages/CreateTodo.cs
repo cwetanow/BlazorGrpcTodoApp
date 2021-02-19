@@ -17,7 +17,7 @@ namespace TodoApp.UI.Pages
         public async Task Create()
         {
             var response = await Client.CreateAsync(this.Request);
-            this.Navigation.NavigateTo($"todos/{response.Id}");
+            this.Navigation.NavigateTo(string.Empty);
         }
     }
 }

@@ -20,5 +20,10 @@ namespace TodoApp.Domain
         public DateTime? EndDate { get; private set; }
 
         public bool IsCompleted { get; private set; } = false;
+
+        public void Complete()
+        {
+            this.IsCompleted = true;
+        }
     }
 }

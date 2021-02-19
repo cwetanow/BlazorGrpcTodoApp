@@ -6,8 +6,8 @@ package todos;
 
 service TodoActions {
 	rpc Create (NewTodoRequest) returns (TodoItem);
-	rpc Get (GetTodoByIdRequest) returns (TodoItem);
 	rpc GetUncomplete (GetUncompleteTodosRequest) returns (TodoItemList);
+	rpc Complete (CompleteTodoRequest) returns (Response);
 }
 
 message GetUncompleteTodosRequest {
@@ -19,8 +19,8 @@ message NewTodoRequest {
 	string endDate = 3;
 }
 
-message GetTodoByIdRequest {
-	int32 id = 2;
+message CompleteTodoRequest {
+	int32 id = 1;
 }
 
 message TodoItemList {
@@ -32,4 +32,8 @@ message TodoItem {
 	string description = 2;
 	string endDate = 3;
 	int32 id = 4;
+}
+
+message Response {
+	bool success=1;
 }

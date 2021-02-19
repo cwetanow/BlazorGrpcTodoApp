@@ -6,25 +6,34 @@
 {
     <p><em>Loading...</em></p>
 }
+else if (!Items.Any())
+{
+    <p><em>Everything is done...</em></p>
+}
 else
 {
     <table class="table">
         <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>End Date</th>
-        </tr>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>End Date</th>
+                <th>-</th>
+            </tr>
         </thead>
         <tbody>
-        @foreach (var todo in Items)
-        {
-            <tr>
-                <td>@todo.Title</td>
-                <td>@todo.Description</td>
-                <td>@todo.EndDate</td>
-            </tr>
-        }
+            @foreach (var todo in Items)
+            {
+                <tr>
+                    <td></td>
+                    <td>@todo.Title</td>
+                    <td>@todo.Description</td>
+                    <td>@todo.EndDate</td>
+                    <th>
+                        <button type="button" class="btn btn-primary" @onclick="async ()=>await Complete(todo.Id)">Complete</button>
+                    </th>
+                </tr>
+            }
         </tbody>
     </table>
 }
