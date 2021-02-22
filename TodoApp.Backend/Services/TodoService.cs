@@ -46,7 +46,7 @@ namespace TodoApp.Backend.Services
                     Title = todoItem.Title,
                     Id = todoItem.Id,
                     Description = todoItem.Description,
-                    EndDate = todoItem.EndDate?.ToString() ?? string.Empty
+                    EndDate = todoItem.EndDate?.ToString("yyyy-MM-dd") ?? string.Empty
                 });
             }
 

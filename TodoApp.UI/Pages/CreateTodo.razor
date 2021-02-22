@@ -11,5 +11,10 @@
         <input type="text" class="form-control" id="description" value="@Request.Description"
                @onchange="@(args=>Request.Description=args.Value.ToString())">
     </div>
-    <button type="button" class="btn btn-primary" @onclick="Create">Create</button>
+    <div class="form-group">
+        <label for="description">End Date</label>
+
+        <input type="date" class="form-control" id="endDate" value="@Request.EndDate" @onchange="@(ev=>Request.EndDate= DateTime.Parse(ev.Value.ToString()).ToString("yyyy-MM-dd"))" />
+    </div>
+    <button type="button" class="btn btn-primary" @onclick="Create" disabled="@(string.IsNullOrEmpty(Request.Title))">Create</button>
 </form>
